@@ -4,17 +4,12 @@
   const narrow = window.matchMedia('(max-width:900px)');
   const nextBtn = $('#next'), nextLbl = $('#next-l');
 
-  // Tema: sem escolha salva, segue o sistema; o botão grava a escolha.
-  const root = document.documentElement, sysDark = window.matchMedia('(prefers-color-scheme: dark)');
-  const syncTheme = () => { if (!root.dataset.theme) root.dataset.theme = sysDark.matches ? 'dark' : 'light'; };
-  let saved = null;
-  try { saved = localStorage.getItem('tema'); } catch (e) {}
-  syncTheme();
-  sysDark.addEventListener('change', () => { if (!saved) { delete root.dataset.theme; syncTheme(); } });
+  // Tema: claro por padrão (definido no <head>); o botão alterna e grava a escolha.
+  const root = document.documentElement;
   $('#theme').addEventListener('click', () => {
-    saved = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = saved;
-    try { localStorage.setItem('tema', saved); } catch (e) {}
+    const t = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = t;
+    try { localStorage.setItem('tema', t); } catch (e) {}
   });
   const FILTERS = [[0, 'Todas'], [1, 'Até R$ 70'], [2, 'R$ 70–200'], [3, 'Acima de R$ 200']];
   let tier = 0, current = 'inicio';
