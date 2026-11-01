@@ -167,6 +167,12 @@ TABS.push({
       use: 'À noite, 2 a 3 vezes por semana no início, e protetor no dia seguinte.',
       care: 'Não use no mesmo dia que retinoide. Esfoliar demais fragiliza a barreira e piora a mancha.',
       prods: [
+        { b: 'Principia', n: 'aA-2 Alfa-Arbutin 2% + Gluconolactona 10%', c: 'Alfa-arbutin 2% + gluconolactona (PHA) 10% · 30 ml', pl: '~R$ 56–69', p: 56,
+          pros: ['Alfa-arbutin em 2%, concentração informada no rótulo', 'A gluconolactona é um esfoliante bem suave, tolerado até por pele sensível', 'Fácil de achar em redes de farmácia'],
+          cons: ['A gluconolactona é um ácido, mesmo que suave: se irritar, não use na mesma noite que retinoide', 'Clareia devagar, em meses de uso'] },
+        { b: 'The Ordinary', n: 'Alpha Arbutin 2% + HA', c: 'Alfa-arbutin 2% + ácido hialurônico · 30 ml', pl: '~R$ 100–150', p: 100,
+          pros: ['Fórmula focada no alfa-arbutin, sem ácido, então combina com quase tudo e pode ir de manhã', 'Hialurônico na base ajuda a hidratar'],
+          cons: ['Bem mais caro que o da Principia, com a mesma concentração', 'No Brasil aparece mais em marketplaces e lojas de importação'] },
         { b: 'Principia', n: 'AM-10 Ácido Mandélico + Alfa-Arbutin', c: 'Mandélico + alfa-arbutin · 30 ml', pl: '~R$ 69', p: 69,
           pros: ['Baixo preço', 'Mandélico é mais suave que o glicólico', 'Combinação em um frasco'],
           cons: ['Efeito mais lento que o dos clareadores com tranexâmico', 'Exige protetor solar rigoroso'] },
