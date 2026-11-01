@@ -205,7 +205,6 @@ h2{font:600 clamp(1.9rem,5vw,2.6rem)/1.08 var(--f-display);letter-spacing:-.045e
 /* Monte sua rotina */
 .chks{display:flex;flex-wrap:wrap;gap:8px}
 .chk{display:inline-flex;align-items:center;gap:9px;padding:10px 16px;border-radius:999px;background:var(--surface2);cursor:pointer;font-size:14.5px;font-weight:500;line-height:1.3;user-select:none}
-.chk.solo{margin-top:14px}
 .chk input,.pick input{appearance:none;-webkit-appearance:none;margin:0;flex:0 0 auto;width:19px;height:19px;border-radius:6px;border:1.5px solid var(--muted);background:var(--surface);display:grid;place-items:center;cursor:pointer}
 .chk input:checked,.pick input:checked{background:var(--accent);border-color:var(--accent)}
 .chk input:checked::after,.pick input:checked::after{content:"";width:5px;height:9px;border:solid var(--accent-ink);border-width:0 2px 2px 0;transform:translateY(-1px) rotate(45deg)}
@@ -243,7 +242,6 @@ h2{font:600 clamp(1.9rem,5vw,2.6rem)/1.08 var(--f-display);letter-spacing:-.045e
 .why.l3{background:var(--good-soft);color:var(--good)}
 .why.l2{background:var(--blue-soft);color:var(--blue)}
 .why.l1{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--muted)}
-.why.med{background:var(--warn-soft);color:var(--warn)}
 /* Fio no topo e seleção na cor do nível de indicação */
 .pick.l3{box-shadow:inset 0 3px 0 var(--good)}
 .pick.l2{box-shadow:inset 0 3px 0 var(--blue)}

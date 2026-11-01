@@ -84,7 +84,6 @@
   const ICON = { m: I_SUN, n: I_MOON, mn: I_SUN + I_MOON };
   const byId = Object.fromEntries(ACTS.map((a) => [a.id, a]));
   const LV = { 3: 'Muito indicado', 2: 'Indicado', 1: 'Pode ajudar' };
-  const MED = ['retinol', 'retinal', 'salicilico', 'tranex', 'azelaico', 'ghk', 'adapaleno', 'egf']; // pedem orientação médica na gravidez e na amamentação
   const KEY = 'rotina';
   const joinPt = (arr) => (arr.length < 2 ? arr.join('') : arr.slice(0, -1).join(', ') + ' e ' + arr[arr.length - 1]);
 
@@ -96,7 +95,6 @@
     <div class="step-n">1</div>
     <div class="sec">O que te incomoda</div>
     <div class="chks" id="rt-probs">${PROBS.map((p) => `<label class="chk"><input type="checkbox" name="p" value="${p[0]}"> ${p[1]}</label>`).join('')}</div>
-    <label class="chk solo"><input type="checkbox" id="rt-preg"> Gravidez ou amamentação</label>
   </section>
 
   <section class="blk step">
@@ -128,7 +126,7 @@
     const $ = (s) => root.querySelector(s);
     const boxes = (name) => [...root.querySelectorAll(`input[name="${name}"]`)];
     const box = (id) => root.querySelector(`input[name="a"][value="${id}"]`);
-    const preg = $('#rt-preg'), hint = $('#rt-hint'), warn = $('#rt-warn'), list = $('#rt-acts');
+    const hint = $('#rt-hint'), warn = $('#rt-warn'), list = $('#rt-acts');
     const checkedProbs = () => boxes('p').filter((b) => b.checked).map((b) => b.value);
     const level = (a, probs) => Math.max(0, ...probs.map((p) => a.lv[p] || 0));
 
@@ -136,14 +134,13 @@
     try { st = JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) {}
     boxes('p').forEach((b) => { b.checked = (st.p || []).includes(b.value); });
     boxes('a').forEach((b) => { b.checked = (st.a || []).includes(b.value); });
-    preg.checked = !!st.g;
     // Ativos marcados sozinhos pelas queixas. Os que a pessoa marca ou desmarca à mão saem daqui e ficam como ela deixou.
     const auto = new Set((st.auto || []).filter((id) => byId[id])); // ignora ids de versões antigas da lista
 
     // Marca os "muito indicados" das queixas atuais e desmarca os automáticos que deixaram de ser.
     function autoSelect() {
-      const probs = checkedProbs(), g = preg.checked;
-      const want = new Set(ACTS.filter((a) => level(a, probs) === 3 && !(g && MED.includes(a.id))).map((a) => a.id));
+      const probs = checkedProbs();
+      const want = new Set(ACTS.filter((a) => level(a, probs) === 3).map((a) => a.id));
       auto.forEach((id) => { if (!want.has(id)) { box(id).checked = false; auto.delete(id); } });
       want.forEach((id) => { const b = box(id); if (!b.checked) { b.checked = true; auto.add(id); } });
     }
@@ -151,8 +148,7 @@
     function update() {
       const probs = checkedProbs();
       const sel = new Set(boxes('a').filter((b) => b.checked).map((b) => b.value));
-      const g = preg.checked;
-      try { localStorage.setItem(KEY, JSON.stringify({ p: probs, a: [...sel], g, auto: [...auto] })); } catch (e) {}
+      try { localStorage.setItem(KEY, JSON.stringify({ p: probs, a: [...sel], auto: [...auto] })); } catch (e) {}
 
       // Cor e etiquetas de cada ativo, e os mais indicados primeiro na lista.
       const order = ACTS.map((a, i) => ({ a, i, l: level(a, probs) }));
@@ -164,15 +160,13 @@
           const ps = probs.filter((p) => a.lv[p] === n);
           return ps.length ? `<span class="why l${n}">${LV[n]}: ${joinPt(ps.map((p) => SHORT[p]))}</span>` : '';
         }).join('');
-        card.querySelector('.whys').innerHTML = chips + (a.est ? '<span class="why l1">Em estudo, pouca evidência</span>' : '') +
-          (g && MED.includes(a.id) ? '<span class="why med">Pede orientação médica</span>' : '');
+        card.querySelector('.whys').innerHTML = chips + (a.est ? '<span class="why l1">Em estudo, pouca evidência</span>' : '');
       });
       order.sort((x, y) => y.l - x.l || x.i - y.i).forEach(({ a }) => list.appendChild(list.querySelector(`[data-id="${a.id}"]`)));
       $('#rt-legend').hidden = !probs.length;
       hint.textContent = !probs.length
         ? 'Marque acima o que te incomoda e os ativos mais indicados já entram selecionados. Ou escolha direto na lista.'
-        : 'Os mais indicados para o que você marcou já estão selecionados, e as cores mostram o quanto cada ativo ajuda. Você pode desmarcar ou incluir outros.' +
-          (g ? ' Com gravidez ou amamentação marcada, os ativos que pedem orientação médica não entram sozinhos.' : '');
+        : 'Os mais indicados para o que você marcou já estão selecionados, e as cores mostram o quanto cada ativo ajuda. Você pode desmarcar ou incluir outros.';
 
       // Rotina: limpeza, ativos na ordem, hidratante e, de manhã, protetor por último.
       const of = (kind) => [...sel].filter((id) => byId[id].kind === kind);
@@ -206,8 +200,6 @@
       if (sel.has('ghk') && acids.length) w.push(['Peptídeo de cobre e ácido', 'Muitos fabricantes orientam não usar o peptídeo de cobre junto de ácidos fortes. Alterne as noites.']);
       const est = [...sel].filter((id) => byId[id].est);
       if (est.length) w.push(['Ativos em estudo', `${names(est).replace(/^./, (c) => c.toUpperCase())} ${est.length > 1 ? 'têm' : 'tem'} bem menos evidência que os outros ativos desta lista. Vale testar sabendo disso, e sem deixar de lado o que tem mais estudo.`]);
-      const medSel = [...sel].filter((id) => MED.includes(id));
-      if (g && medSel.length) w.push(['Gravidez ou amamentação', `Converse com seu médico antes de usar ${names(medSel)}.` + (rets.length ? ' Retinoides devem ser evitados nesse período sem orientação médica.' : '')]);
       if (probs.includes('sensivel') && (rets.length || acids.length)) w.push(['Pele sensível', 'Comece pelo hidratante com ceramidas e deixe retinoides e ácidos para quando a pele estiver calma, com uso bem espaçado.']);
       if (probs.includes('manchas')) w.push(['Manchas', 'O protetor solar diário, de preferência com cor, faz parte do tratamento. Se a mancha for melasma ou estiver mudando de tamanho ou cor, procure um dermatologista.']);
       // Todos os avisos numa caixa só, sempre aberta.
@@ -216,10 +208,8 @@
     }
 
     $('#rt-probs').addEventListener('change', () => { autoSelect(); update(); });
-    preg.addEventListener('change', () => { autoSelect(); update(); });
     list.addEventListener('change', (e) => { auto.delete(e.target.value); update(); });    $('#rt-clear').addEventListener('click', () => {
       boxes('p').concat(boxes('a')).forEach((b) => { b.checked = false; });
-      preg.checked = false;
       auto.clear();
       update();
     });
