@@ -7,6 +7,21 @@
     return '<li' + (m ? ' class="' + m[0] + '"' : '') + '><i>' + (i + 1) + '</i><span>' + n + '</span>' + (m ? '<em>' + m[1] + '</em>' : '') + '</li>';
   }).join('') + '</ol>';
   const IMG = 'img/sallve-creme-retexturizador.webp';
+  // Retinoides do mais fraco ao mais forte. f = força aproximada (1 a 5); é uma comparação geral, não uma medida.
+  const RETS = [
+    ['Ésteres de retinila', 'Retinyl Palmitate, Retinyl Acetate', 1, 'Precisam de três conversões na pele até virar ácido retinoico, e perdem força em cada uma. Irritam pouco, e o efeito também é pequeno.', 'Pele muito sensível ou um primeiro contato com retinoides.'],
+    ['Retinol', 'Retinol', 2, 'Precisa de duas conversões. É o retinoide de farmácia mais estudado, em geral de 0,1% a 1%.', 'Quem está começando, para linhas finas, textura e manchas leves.'],
+    ['HPR', 'Hydroxypinacolone Retinoate', 2, 'Éster do ácido retinoico que, segundo o fabricante, age sem conversão e irrita menos. Ainda tem poucos estudos independentes.', 'Quem irrita com retinol e quer testar uma alternativa.'],
+    ['Retinal (retinaldeído)', 'Retinal, Retinaldehyde', 3, 'Precisa de uma conversão só, então age mais rápido que o retinol. Também tem ação contra a bactéria da acne.', 'Quem já tolera retinol e quer subir um degrau, ou tem rugas e acne juntas.'],
+    ['Adapaleno', 'Adapalene', 4, 'Retinoide sintético, mais estável e em geral menos irritante que a tretinoína, porque age em receptores específicos. Costuma vir a 0,1% ou 0,3%.', 'Acne com cravos e espinhas, que é o uso principal. Também melhora a textura.'],
+    ['Tretinoína (ácido retinoico)', 'Tretinoin', 5, 'A forma ativa, sem conversão nenhuma. É o retinoide mais estudado contra rugas e acne, e também o que mais irrita. Vai de 0,025% a 0,1%.', 'Fotoenvelhecimento e acne, de preferência com acompanhamento do dermatologista.']
+  ];
+  const rets = '<div class="rets">' + RETS.map((r) => `<div class="ret">
+      <div class="ret-h"><div><b>${r[0]}</b><code>${r[1]}</code></div>
+        <span class="pow" role="img" aria-label="Força aproximada: ${r[2]} de 5">${[1, 2, 3, 4, 5].map((i) => '<i' + (i <= r[2] ? ' class="on"' : '') + '></i>').join('')}</span></div>
+      <p>${r[3]}</p>
+      <p class="ret-u"><b>Para quem:</b> ${r[4]}</p>
+    </div>`).join('') + '</div>';
   const row = (a, front, st, cls, txt) => '<div class="pair"><div><b>' + a + '</b><br><span style="color:var(--muted);font-size:14px">' + front + '</span></div><span class="st ' + cls + '">' + st + '</span><p>' + txt + '</p></div>';
 
   const html = `
@@ -63,6 +78,15 @@
     <div><dt>Pantenol</dt><dd><b>Panthenol</b>.</dd></div>
     <div><dt>Ômegas 6 e 9</dt><dd><b>Linoleic Acid</b> (ômega 6) e <b>Oleic Acid</b> (ômega 9), ou óleos vegetais que os contêm.</dd></div>
   </dl>
+
+  <div class="sec">Retinoides: qual é qual</div>
+  <p>Todos são parentes da vitamina A, mas só o ácido retinoico age de fato na pele. Os outros precisam ser convertidos até ele, e cada etapa perde força. Por isso, quanto mais perto do fim da fila, mais forte o efeito e maior a chance de irritar.</p>
+  <div class="chain" aria-label="Conversão na pele: ésteres, retinol, retinal, ácido retinoico">
+    <span>Ésteres</span><i aria-hidden="true">→</i><span>Retinol</span><i aria-hidden="true">→</i><span>Retinal</span><i aria-hidden="true">→</i><span class="end">Ácido retinoico</span>
+  </div>
+  <p class="chain-n">Adapaleno e HPR não entram nessa fila: agem direto, sem conversão.</p>
+  ${rets}
+  <div class="note" style="margin-top:14px"><b>Antes de escolher</b><p>Comece pelo mais fraco que resolve, à noite, em poucas noites por semana, e use protetor todo dia. Mais forte não quer dizer melhor se a pele não tolera. Na gravidez, todos os retinoides devem ser evitados. A isotretinoína oral, para acne grave, é outro tratamento: é comprimido, só é vendida com receita especial e exige acompanhamento médico.</p></div>
 
   <div class="sec">Termos que não dizem a quantidade</div>
   <div class="rules">

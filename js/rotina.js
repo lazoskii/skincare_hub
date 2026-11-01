@@ -44,7 +44,7 @@
       d: 'Um passo mais perto do ácido retinoico que o retinol. Age mais rápido e pode irritar mais.', u: 'Pouca quantidade, em pele seca. Comece 2 noites por semana.',
       w: 'Só à noite, pelos mesmos motivos do retinol: a luz o degrada e ele sensibiliza a pele ao sol.' },
     { id: 'adapaleno', n: 'Adapaleno e tretinoína', s: 'adapaleno ou tretinoína', when: 'n', ord: 3, tab: 'acne', ai: 3, kind: 'ret', lv: { acne: 2, rugas: 2, manchas: 1 },
-      d: 'Retinoides de receita, a base do tratamento da acne. O dermatologista define qual usar.', u: 'Pouca quantidade, aumentando aos poucos, como o médico orientar.',
+      d: 'Retinoides mais fortes que o retinol, a base do tratamento da acne. O adapaleno é o mais suave para começar.', u: 'Pouca quantidade, aumentando aos poucos. Comece em noites alternadas.',
       w: 'Só à noite: como todo retinoide, deixa a pele mais sensível ao sol.' },
     { id: 'salicilico', n: 'Ácido salicílico', s: 'ácido salicílico', when: 'n', ord: 3, tab: 'acne', ai: 0, kind: 'acid', lv: { acne: 3, oleosidade: 3 },
       d: 'BHA. Dissolve-se em óleo, entra no poro e desentope cravos.', u: 'Em sérum, comece em noites alternadas. Em gel de limpeza, pode ser diário.',
@@ -117,7 +117,7 @@
     <div class="step-n">3</div>
     <div class="sec">Sua rotina</div>
     <div class="routine">
-      <div class="rcol"><h3>${SUN} Manhã</h3><ol class="rsteps" id="rt-m"></ol></div>
+      <div class="rcol am"><h3>${SUN} Manhã</h3><ol class="rsteps" id="rt-m"></ol></div>
       <div class="rcol"><h3>${MOON} Noite</h3><ol class="rsteps" id="rt-n"></ol></div>
     </div>
     <div id="rt-warn"></div>

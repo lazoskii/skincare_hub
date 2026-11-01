@@ -26,7 +26,7 @@
   function actHTML(a, ai, tabId, open) {
     const id = tabId + '-' + ai;
     const n = a.prods ? a.prods.length : 0;
-    const count = n ? `<span class="tag">${n} ${n === 1 ? 'produto' : 'produtos'}</span>` : a.rx ? '<span class="tag">Só com receita</span>' : a.nop ? '<span class="tag">Sem exemplos</span>' : '';
+    const count = n ? `<span class="tag">${n} ${n === 1 ? 'produto' : 'produtos'}</span>` : a.rx ? '<span class="tag">Sem exemplos</span>' : a.nop ? '<span class="tag">Sem exemplos</span>' : '';
     let prods = '';
     if (a.prods) {
       prods = `<div class="plabel">Exemplos de produtos · toque para ver vantagens e desvantagens</div>

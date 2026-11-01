@@ -56,7 +56,7 @@ TABS.push({
     <div><dt>Fotossensibilizante</dt><dd>Que deixa a pele mais sensível ao sol. Retinoides e ácidos entram aqui, por isso pedem protetor no dia seguinte.</dd></div>
   </dl>
 
-  <div class="note"><b>Quando procurar um dermatologista</b><p>Mancha que cresce, muda de cor, tem bordas irregulares, coça ou sangra. Acne com nódulos doloridos ou que deixa cicatriz. Melasma. Pele que arde ou descasca mesmo com produtos suaves. Gravidez ou amamentação. Essas situações pedem avaliação, e alguns tratamentos só existem com receita.</p></div>
+  <div class="note"><b>Quando procurar um dermatologista</b><p>Mancha que cresce, muda de cor, tem bordas irregulares, coça ou sangra. Acne com nódulos doloridos ou que deixa cicatriz. Melasma. Pele que arde ou descasca mesmo com produtos suaves. Gravidez ou amamentação. Essas situações pedem avaliação, e alguns tratamentos pedem acompanhamento médico.</p></div>
   `
 });
 

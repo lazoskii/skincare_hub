@@ -141,7 +141,7 @@ TABS.push({
     ['Retinoide', 'Peróxido de benzoíla', 'alt', 'Podem se irritar. Use em horários diferentes ou como o dermatologista orientar.'],
     ['Peptídeos', 'Ácidos fortes, na mesma hora', 'alt', 'Há dúvida sobre o efeito de um sobre o outro. Separe os horários.'],
     ['Ácido esfoliante', 'Outro ácido esfoliante', 'no', 'Evite empilhar glicólico, salicílico e mandélico na mesma rotina. Escolha um e use com moderação.'],
-    ['Clareador com receita', 'Qualquer ativo', 'alt', 'Siga a orientação do médico sobre horário e combinações.'],
+    ['Hidroquinona', 'Qualquer ativo', 'alt', 'Use sozinha no horário dela e siga a orientação do dermatologista sobre combinações.'],
     ['Qualquer ativo', 'Protetor solar', 'ok', 'Protetor solar é sempre o último passo da manhã, e é obrigatório com retinoides e ácidos.']
   ];
   const lab = { ok: 'Combinam', alt: 'Alternar', no: 'Evitar' };

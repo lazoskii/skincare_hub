@@ -70,7 +70,7 @@ TABS.push({
   lead: 'Acne nasce quando o poro entope com óleo e células mortas, e uma bactéria comum da pele se multiplica ali, causando inflamação. Por isso o tratamento junta controle de oleosidade, esfoliação e, às vezes, antibiótico ou retinoide.',
   types: [
     ['Cravos (acne comedoniana)', 'Pontos pretos (abertos) e brancos (fechados). Não há inflamação forte. É o grau mais leve e o que mais responde a produtos de farmácia.'],
-    ['Acne inflamatória', 'Espinhas vermelhas, com ou sem pus. Doem e podem deixar mancha ou cicatriz. Pede tratamento consistente, e às vezes receita.'],
+    ['Acne inflamatória', 'Espinhas vermelhas, com ou sem pus. Doem e podem deixar mancha ou cicatriz. Pede tratamento consistente, e às vezes acompanhamento médico.'],
     ['Acne nódulo-cística', 'Nódulos profundos, grandes e doloridos, com risco alto de cicatriz. Precisa de dermatologista. Não trate por conta própria.'],
     ['Oleosidade e poros', 'Poros não abrem nem fecham. Parecem maiores quando estão cheios de óleo e células. Controlar óleo e renovar a pele os deixa menos visíveis.']
   ],
@@ -108,13 +108,13 @@ TABS.push({
       who: 'Acne com marcas ou com vermelhidão, e peles sensíveis.',
       use: 'Duas vezes ao dia, em pouca quantidade.',
       care: 'Ardência no início. Orientação médica na gravidez.' },
-    { n: 'Adapaleno e tretinoína', tag: 'Com receita', ev: 'Forte',
+    { n: 'Adapaleno e tretinoína', tag: 'Retinoide forte', ev: 'Forte',
       what: 'Retinoides de uso tópico que são a base do tratamento da acne.',
       how: 'Renovam a pele, desentopem poros e previnem novas lesões.',
-      who: 'Acne persistente ou inflamatória, com indicação médica.',
-      use: 'À noite, em pouca quantidade e aumentando aos poucos. O dermatologista define o que usar.',
+      who: 'Acne persistente ou inflamatória. Vale ter acompanhamento do dermatologista.',
+      use: 'À noite, em pouca quantidade e aumentando aos poucos. O adapaleno é o mais suave para começar.',
       care: 'A pele costuma "piorar antes de melhorar" nas primeiras semanas, e ficar mais sensível ao sol. A tretinoína é proibida na gravidez.',
-      rx: 'Sem exemplos de produto aqui, pois a escolha de ativo e concentração é feita pelo dermatologista. O mesmo vale para peróxido de benzoíla e para a isotretinoína oral, que só se usa com receita e acompanhamento.' }
+      rx: 'Sem exemplos de produto aqui, porque o ativo e a concentração certos mudam muito de caso para caso, e o dermatologista ajuda a escolher. O mesmo vale para o peróxido de benzoíla. A isotretinoína oral é outra história: só é vendida com receita especial e exige acompanhamento.' }
   ],
   alert: { t: 'Não espremer', x: 'Espremer espinha empurra a inflamação para dentro e deixa mancha e cicatriz. Se a acne é dolorida, deixa cicatriz, afeta seu humor ou não melhora em 2 a 3 meses de produtos de farmácia, procure um dermatologista, pois há tratamentos que mudam o quadro.' }
 });

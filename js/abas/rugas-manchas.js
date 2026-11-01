@@ -30,13 +30,13 @@ TABS.push({
           cons: ['Preço alto', 'Ainda irrita no início, apesar do apelo "para pele sensível"'] }
       ]
     },
-    { n: 'Tretinoína', tag: 'Com receita', ev: 'Forte',
+    { n: 'Tretinoína', tag: 'Retinoide forte', ev: 'Forte',
       what: 'É o ácido retinoico em si, o retinoide mais potente. Vem em creme ou gel e é medicamento.',
       how: 'Age direto nos receptores da pele, sem precisar de conversão, por isso o efeito é mais rápido e mais forte que o do retinol.',
-      who: 'Quem tem rugas, fotoenvelhecimento ou acne e já tem acompanhamento médico.',
-      use: 'Concentração, frequência e duração são definidas pelo dermatologista. Em geral à noite, em pouca quantidade.',
-      care: 'Irrita mais que o retinol. Proibida na gravidez e deve ser evitada na amamentação sem orientação médica. Não use por conta própria.',
-      rx: 'Não há exemplos de produto aqui porque a tretinoína é vendida com receita. O dermatologista escolhe a concentração e a forma.' },
+      who: 'Quem tem rugas, fotoenvelhecimento ou acne, de preferência com acompanhamento médico.',
+      use: 'À noite, em pouca quantidade, começando pela menor concentração. O dermatologista ajuda a ajustar frequência e dose.',
+      care: 'Irrita mais que o retinol. Proibida na gravidez e deve ser evitada na amamentação sem orientação médica. Melhor começar com orientação do dermatologista.',
+      rx: 'Não há exemplos de produto aqui porque a concentração e a forma certas mudam de pessoa para pessoa.' },
     { n: 'Vitamina C', tag: 'Antioxidante', ev: 'Moderada',
       what: 'Ácido ascórbico, um antioxidante que neutraliza parte do dano causado pela poluição e pelo sol.',
       how: 'Participa da síntese de colágeno, ilumina o tom e reforça a ação do protetor solar. Não substitui o protetor.',
@@ -178,13 +178,13 @@ TABS.push({
           cons: ['Glicólico irrita mais que o mandélico', 'Começar com uso espaçado, e não diário'] }
       ]
     },
-    { n: 'Hidroquinona', tag: 'Com receita', ev: 'Forte',
+    { n: 'Hidroquinona', tag: 'Clareador forte', ev: 'Forte',
       what: 'Clareador mais antigo e estudado para manchas. É medicamento.',
       how: 'Bloqueia a produção de melanina na raiz.',
-      who: 'Melasma e manchas persistentes, com prescrição.',
-      use: 'Em ciclos com duração definida pelo médico, geralmente à noite.',
-      care: 'O uso prolongado ou sem controle pode causar manchas mais escuras e irritação. Não use por conta própria.',
-      rx: 'Sem exemplos de produto aqui. A hidroquinona precisa de receita e acompanhamento do dermatologista.' }
+      who: 'Melasma e manchas persistentes.',
+      use: 'Em ciclos curtos, geralmente à noite. O dermatologista ajuda a definir a duração.',
+      care: 'O uso prolongado ou sem controle pode causar manchas mais escuras e irritação. Por isso, use em ciclos curtos e com orientação.',
+      rx: 'Sem exemplos de produto aqui. Como a hidroquinona pede uso em ciclos e acompanhamento, vale ver com o dermatologista.' }
   ],
   alert: { t: 'Mancha nova ou que muda', x: 'Qualquer mancha que cresça, mude de cor, tenha bordas irregulares, mais de uma cor, coce ou sangre deve ser vista por um dermatologista antes de qualquer clareador. Pode ser algo que exige tratamento, e clareador não resolve. Para todas as manchas, o protetor solar diário (de preferência com cor) é parte do tratamento.' }
 });
