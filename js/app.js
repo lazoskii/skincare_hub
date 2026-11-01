@@ -121,6 +121,21 @@
     }
   }
 
+  // Link direto para um ativo: #aba/posição (usado pela página da rotina). Abre o ativo e rola até ele.
+  function openAct(ai) {
+    const h = panel.querySelector(`[aria-controls="ab-${current}-${ai}"]`);
+    if (!h) return;
+    h.setAttribute('aria-expanded', 'true');
+    document.getElementById(h.getAttribute('aria-controls')).hidden = false;
+    const y = h.getBoundingClientRect().top + window.scrollY - appbar.offsetHeight - (narrow.matches ? side.offsetHeight : 0) - 16;
+    window.scrollTo(0, Math.max(0, y));
+  }
+  function route(scroll) {
+    const [id, ai] = location.hash.slice(1).split('/');
+    render(TABS.some((t) => t.id === id) ? id : 'inicio', scroll);
+    if (ai) openAct(ai);
+  }
+
   function go(id) {
     if (location.hash.slice(1) === id) render(id, true);
     else location.hash = id;
@@ -155,9 +170,8 @@
     const body = document.getElementById(h.getAttribute('aria-controls'));
     if (body) body.hidden = open;
   });
-  window.addEventListener('hashchange', () => render(location.hash.slice(1), true));
+  window.addEventListener('hashchange', () => route(true));
 
   buildChrome();
-  const start = location.hash.slice(1);
-  render(TABS.some((t) => t.id === start) ? start : 'inicio', false);
+  route(false);
 })();

@@ -10,71 +10,71 @@
   const SHORT = Object.fromEntries(PROBS.map((p) => [p[0], p[2]]));
 
   // when = horário em que o ativo costuma ser indicado: m = manhã, n = noite (mn só para os hidratantes, que entram nos dois).
-  // w = por que esse horário. ord = posição na rotina (menor vai antes). tab = aba com os produtos.
+  // w = por que esse horário. ord = posição na rotina (menor vai antes). tab = aba com os produtos, ai = posição do ativo nessa aba.
   // lv = o quanto ajuda em cada queixa, segundo as abas do guia: 3 muito indicado (marcado sozinho), 2 indicado, 1 pode ajudar.
   // kind agrupa para os avisos de combinação: ret = retinoide, acid = ácido esfoliante. est = ativo da aba "Em estudo".
   const ACTS = [
     // Manhã
-    { id: 'vitc', n: 'Vitamina C', s: 'vitamina C', when: 'm', ord: 2, tab: 'rugas', lv: { rugas: 2, manchas: 2, flacidez: 2 },
+    { id: 'vitc', n: 'Vitamina C', s: 'vitamina C', when: 'm', ord: 2, tab: 'rugas', ai: 2, lv: { rugas: 2, manchas: 2, flacidez: 2 },
       d: 'Antioxidante que ilumina o tom e reforça o protetor.', u: 'Em pele limpa e seca, antes dos outros séruns.',
       w: 'De manhã porque protege contra o dano do sol e da poluição e reforça o protetor.' },
-    { id: 'niacin', n: 'Niacinamida', s: 'niacinamida', when: 'm', ord: 3, tab: 'manchas', lv: { oleosidade: 3, manchas: 2, acne: 2, sensivel: 1 },
+    { id: 'niacin', n: 'Niacinamida', s: 'niacinamida', when: 'm', ord: 3, tab: 'manchas', ai: 1, lv: { oleosidade: 3, manchas: 2, acne: 2, sensivel: 1 },
       d: 'Vitamina B3. Controla a oleosidade, ajuda em manchas leves e reforça a barreira.', u: 'Algumas gotas no rosto todo.',
       w: 'De manhã porque segura a oleosidade ao longo do dia e combina com vitamina C. Também pode ir à noite.' },
-    { id: 'azelaico', n: 'Ácido azelaico', s: 'ácido azelaico', when: 'm', ord: 3, tab: 'manchas', lv: { acne: 3, manchas: 2 },
+    { id: 'azelaico', n: 'Ácido azelaico', s: 'ácido azelaico', when: 'm', ord: 3, tab: 'manchas', ai: 3, lv: { acne: 3, manchas: 2 },
       d: 'Trata acne e vermelhidão e clareia as marcas que ficam.', u: 'Pouca quantidade. Ardência no começo é comum.',
       w: 'De manhã porque combina com niacinamida e vitamina C e deixa a noite livre para retinoide ou ácido.' },
-    { id: 'arbutin', n: 'Alfa-arbutin', s: 'alfa-arbutin', when: 'm', ord: 3, tab: 'manchas', lv: { manchas: 2 },
+    { id: 'arbutin', n: 'Alfa-arbutin', s: 'alfa-arbutin', when: 'm', ord: 3, tab: 'manchas', ai: 4, lv: { manchas: 2 },
       d: 'Clareador derivado de planta, que reduz a enzima que produz o pigmento.', u: 'Nas áreas com mancha ou no rosto todo.',
       w: 'De manhã porque é suave e combina com vitamina C, e a noite fica livre para os ácidos. Também pode ir à noite.' },
-    { id: 'cafeina', n: 'Cafeína', s: 'cafeína', when: 'm', ord: 5, tab: 'olheiras', lv: { olheiras: 3 },
+    { id: 'cafeina', n: 'Cafeína', s: 'cafeína', when: 'm', ord: 5, tab: 'olheiras', ai: 0, lv: { olheiras: 3 },
       d: 'Contrai os vasos e reduz o inchaço sob os olhos, de forma passageira.', u: 'Pouca quantidade sob os olhos, sem chegar à pálpebra.',
       w: 'De manhã porque age sobre o inchaço com que se acorda.' },
-    { id: 'peptideos', n: 'Peptídeos', s: 'peptídeos', when: 'm', ord: 3, tab: 'flacidez', lv: { flacidez: 1, rugas: 1, olheiras: 1 },
+    { id: 'peptideos', n: 'Peptídeos', s: 'peptídeos', when: 'm', ord: 3, tab: 'flacidez', ai: 0, lv: { flacidez: 1, rugas: 1, olheiras: 1 },
       d: 'Ativo suave para firmeza, que combina com quase tudo.', u: 'Depois dos outros séruns.',
       w: 'De manhã para ficar longe dos ácidos fortes da noite, que podem atrapalhar o efeito.' },
-    { id: 'pdrn', n: 'PDRN ("DNA de salmão")', s: 'PDRN', when: 'm', ord: 3, tab: 'estudo', est: true, lv: { rugas: 1 },
+    { id: 'pdrn', n: 'PDRN ("DNA de salmão")', s: 'PDRN', when: 'm', ord: 3, tab: 'estudo', ai: 1, est: true, lv: { rugas: 1 },
       d: 'Fragmentos de DNA usados em K-beauty. Em sérum, há pouca prova de que chegue onde age.', u: 'Sérum ou ampola, como os outros séruns.',
       w: 'De manhã, junto dos outros séruns suaves. Quem tem alergia a peixe deve falar com o médico antes.' },
     // Noite
-    { id: 'retinol', n: 'Retinol', s: 'retinol', when: 'n', ord: 3, tab: 'rugas', kind: 'ret', lv: { rugas: 3, flacidez: 3, manchas: 1 },
+    { id: 'retinol', n: 'Retinol', s: 'retinol', when: 'n', ord: 3, tab: 'rugas', ai: 0, kind: 'ret', lv: { rugas: 3, flacidez: 3, manchas: 1 },
       d: 'Vitamina A. O ativo de farmácia mais estudado contra rugas.', u: 'Uma ervilha para o rosto todo, em pele seca. Comece 2 noites por semana.',
       w: 'Só à noite: a luz degrada o retinol, e ele deixa a pele mais sensível ao sol.' },
-    { id: 'retinal', n: 'Retinal (retinaldeído)', s: 'retinal', when: 'n', ord: 3, tab: 'rugas', kind: 'ret', lv: { rugas: 2, flacidez: 2, manchas: 1 },
+    { id: 'retinal', n: 'Retinal (retinaldeído)', s: 'retinal', when: 'n', ord: 3, tab: 'rugas', ai: 0, kind: 'ret', lv: { rugas: 2, flacidez: 2, manchas: 1 },
       d: 'Um passo mais perto do ácido retinoico que o retinol. Age mais rápido e pode irritar mais.', u: 'Pouca quantidade, em pele seca. Comece 2 noites por semana.',
       w: 'Só à noite, pelos mesmos motivos do retinol: a luz o degrada e ele sensibiliza a pele ao sol.' },
-    { id: 'adapaleno', n: 'Adapaleno e tretinoína', s: 'adapaleno ou tretinoína', when: 'n', ord: 3, tab: 'acne', kind: 'ret', lv: { acne: 2, rugas: 2, manchas: 1 },
+    { id: 'adapaleno', n: 'Adapaleno e tretinoína', s: 'adapaleno ou tretinoína', when: 'n', ord: 3, tab: 'acne', ai: 3, kind: 'ret', lv: { acne: 2, rugas: 2, manchas: 1 },
       d: 'Retinoides de receita, a base do tratamento da acne. O dermatologista define qual usar.', u: 'Pouca quantidade, aumentando aos poucos, como o médico orientar.',
       w: 'Só à noite: como todo retinoide, deixa a pele mais sensível ao sol.' },
-    { id: 'salicilico', n: 'Ácido salicílico', s: 'ácido salicílico', when: 'n', ord: 3, tab: 'acne', kind: 'acid', lv: { acne: 3, oleosidade: 3 },
+    { id: 'salicilico', n: 'Ácido salicílico', s: 'ácido salicílico', when: 'n', ord: 3, tab: 'acne', ai: 0, kind: 'acid', lv: { acne: 3, oleosidade: 3 },
       d: 'BHA. Dissolve-se em óleo, entra no poro e desentope cravos.', u: 'Em sérum, comece em noites alternadas. Em gel de limpeza, pode ser diário.',
       w: 'À noite porque deixa a pele mais sensível ao sol.' },
-    { id: 'glicolico', n: 'Ácido glicólico', s: 'ácido glicólico', when: 'n', ord: 3, tab: 'manchas', kind: 'acid', lv: { manchas: 2, rugas: 1, acne: 1 },
+    { id: 'glicolico', n: 'Ácido glicólico', s: 'ácido glicólico', when: 'n', ord: 3, tab: 'manchas', ai: 4, kind: 'acid', lv: { manchas: 2, rugas: 1, acne: 1 },
       d: 'AHA. Esfolia a superfície, uniformiza o tom e melhora a textura.', u: 'Comece 2 a 3 noites por semana.',
       w: 'À noite porque deixa a pele mais sensível ao sol.' },
-    { id: 'mandelico', n: 'Ácido mandélico', s: 'ácido mandélico', when: 'n', ord: 3, tab: 'manchas', kind: 'acid', lv: { manchas: 2, acne: 1 },
+    { id: 'mandelico', n: 'Ácido mandélico', s: 'ácido mandélico', when: 'n', ord: 3, tab: 'manchas', ai: 4, kind: 'acid', lv: { manchas: 2, acne: 1 },
       d: 'AHA mais suave que o glicólico, boa opção para peles sensíveis e escuras.', u: 'Comece 2 a 3 noites por semana.',
       w: 'À noite porque, como todo ácido esfoliante, deixa a pele mais sensível ao sol.' },
-    { id: 'tranex', n: 'Ácido tranexâmico', s: 'ácido tranexâmico', when: 'n', ord: 3, tab: 'manchas', lv: { manchas: 3, olheiras: 2 },
+    { id: 'tranex', n: 'Ácido tranexâmico', s: 'ácido tranexâmico', when: 'n', ord: 3, tab: 'manchas', ai: 2, lv: { manchas: 3, olheiras: 2 },
       d: 'Clareador bem tolerado, estudado no melasma.', u: 'Nas áreas com mancha ou no rosto todo.',
       w: 'À noite, no passo de tratamento. Por ser bem tolerado, também pode ir de manhã.' },
-    { id: 'ghk', n: 'Peptídeo de cobre (GHK-Cu)', s: 'peptídeo de cobre', when: 'n', ord: 3, tab: 'estudo', est: true, lv: { rugas: 1, flacidez: 1 },
+    { id: 'ghk', n: 'Peptídeo de cobre (GHK-Cu)', s: 'peptídeo de cobre', when: 'n', ord: 3, tab: 'estudo', ai: 0, est: true, lv: { rugas: 1, flacidez: 1 },
       d: 'Peptídeo da moda. Estudos tópicos pequenos, muitos pagos pela indústria.', u: 'Sérum, em concentração baixa.',
       w: 'À noite para ficar longe da vitamina C da manhã, que muitos fabricantes pedem para não usar junto.' },
-    { id: 'exossomos', n: 'Exossomos', s: 'exossomos', when: 'n', ord: 3, tab: 'estudo', est: true, lv: { rugas: 1 },
+    { id: 'exossomos', n: 'Exossomos', s: 'exossomos', when: 'n', ord: 3, tab: 'estudo', ai: 2, est: true, lv: { rugas: 1 },
       d: 'Vesículas que as células liberam. O rótulo não diz a origem nem quanto há na fórmula.', u: 'Sérum, como os outros séruns.',
       w: 'À noite, no passo de tratamento, junto dos outros séruns regeneradores.' },
-    { id: 'egf', n: 'Fatores de crescimento (EGF)', s: 'fatores de crescimento', when: 'n', ord: 3, tab: 'estudo', est: true, lv: { rugas: 1, flacidez: 1 },
+    { id: 'egf', n: 'Fatores de crescimento (EGF)', s: 'fatores de crescimento', when: 'n', ord: 3, tab: 'estudo', ai: 3, est: true, lv: { rugas: 1, flacidez: 1 },
       d: 'Proteínas que sinalizam reparo. São grandes, e a penetração em pele íntegra é questionada.', u: 'Sérum, como os outros séruns.',
       w: 'À noite, como costuma vir indicado nos próprios séruns.' },
-    { id: 'pantenol', n: 'Pantenol (vitamina B5)', s: 'pantenol', when: 'n', ord: 5, tab: 'hidratacao', lv: { sensivel: 2, seca: 1 },
+    { id: 'pantenol', n: 'Pantenol (vitamina B5)', s: 'pantenol', when: 'n', ord: 5, tab: 'hidratacao', ai: 2, lv: { sensivel: 2, seca: 1 },
       d: 'Acalma e ajuda a barreira a se recompor depois de irritação.', u: 'Antes do hidratante, ou no lugar dele enquanto a pele se recupera.',
       w: 'À noite porque ajuda a pele a se recuperar dos tratamentos enquanto você dorme.' },
     // Hidratantes: entram de manhã e à noite
-    { id: 'hialu', n: 'Ácido hialurônico e glicerina', s: 'ácido hialurônico', when: 'mn', ord: 4, tab: 'hidratacao', lv: { seca: 3, rugas: 1, olheiras: 1 },
+    { id: 'hialu', n: 'Ácido hialurônico e glicerina', s: 'ácido hialurônico', when: 'mn', ord: 4, tab: 'hidratacao', ai: 1, lv: { seca: 3, rugas: 1, olheiras: 1 },
       d: 'Humectantes que seguram água na pele e suavizam linhas de ressecamento.', u: 'Com a pele levemente úmida, e o hidratante logo em seguida.',
       w: 'De manhã e à noite, porque hidratam sem interferir nos outros ativos.' },
-    { id: 'ceramidas', n: 'Hidratante com ceramidas', s: 'hidratante com ceramidas', when: 'mn', ord: 6, tab: 'hidratacao', lv: { seca: 3, sensivel: 3 },
+    { id: 'ceramidas', n: 'Hidratante com ceramidas', s: 'hidratante com ceramidas', when: 'mn', ord: 6, tab: 'hidratacao', ai: 0, lv: { seca: 3, sensivel: 3 },
       d: 'Repara a barreira e ajuda a pele a tolerar os outros ativos.', u: 'No lugar do hidratante comum.',
       w: 'De manhã e à noite, porque substitui o hidratante, que entra nas duas rotinas.' }
   ];
@@ -82,6 +82,8 @@
   const I_SUN = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>';
   const I_MOON = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>';
   const ICON = { m: I_SUN, n: I_MOON, mn: I_SUN + I_MOON };
+  const I_INFO = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5M12 7.6v.1"/></svg>';
+  const guide = (a) => `guia.html#${a.tab}/${a.ai}`; // abre a aba e já expande o ativo (ver openAct em app.js)
   const byId = Object.fromEntries(ACTS.map((a) => [a.id, a]));
   const LV = { 3: 'Muito indicado', 2: 'Indicado', 1: 'Pode ajudar' };
   const KEY = 'rotina';
@@ -104,7 +106,7 @@
     <div class="lv-legend" id="rt-legend" hidden><span class="l3"><i></i>Muito indicado</span><span class="l2"><i></i>Indicado</span><span class="l1"><i></i>Pode ajudar</span></div>
     <div class="picks" id="rt-acts">${ACTS.map((a) => `<label class="pick" data-id="${a.id}">
       <input type="checkbox" name="a" value="${a.id}">
-      <span class="pick-top"><span class="slot ${a.when}">${ICON[a.when]}${SLOT[a.when]}</span><span class="tick" aria-hidden="true"></span></span>
+      <span class="pick-top"><span class="slot ${a.when}">${ICON[a.when]}${SLOT[a.when]}</span><span class="pick-r"><a class="more" href="${guide(a)}" title="Mais informações no guia" aria-label="Mais informações sobre ${a.s} no guia">${I_INFO}</a><span class="tick" aria-hidden="true"></span></span></span>
       <b>${a.n}</b>
       <small>${a.d}</small>
       <span class="whys"></span>
@@ -180,11 +182,11 @@
           if (both && a.kind === 'ret') d += ' Em noites diferentes das do ácido.';
           if (both && a.kind === 'acid') d += ' Em noites diferentes das do retinoide.';
           if (a.id === 'ghk' && acids.length) d += ' Em noites diferentes das do ácido.';
-          out.push({ n: a.n, d, w: a.w, ord: a.ord, tab: a.tab });
+          out.push({ n: a.n, d, w: a.w, ord: a.ord, href: guide(a) });
         });
         if (!sel.has('ceramidas')) out.push({ n: 'Hidratante', d: time === 'm' ? 'Gel ou creme, conforme a sua pele.' : 'Creme, que ajuda a pele a tolerar o tratamento.', ord: 6 });
         if (time === 'm') out.push({ n: 'Protetor solar', d: 'Sempre o último passo, todos os dias. Reaplique se ficar no sol.', ord: 7 });
-        return out.sort((x, y) => x.ord - y.ord).map((s) => `<li${s.tab ? ' class="act"' : ''}><div><b>${s.n}</b><span>${s.d}${s.tab ? ` <a class="linkbtn" href="guia.html#${s.tab}">Ver produtos</a>` : ''}</span>${s.w ? `<small class="whyslot">${s.w}</small>` : ''}</div></li>`).join('');
+        return out.sort((x, y) => x.ord - y.ord).map((s) => `<li${s.href ? ' class="act"' : ''}><div><b>${s.n}</b><span>${s.d}</span>${s.w ? `<small class="whyslot">${s.w}</small>` : ''}</div>${s.href ? `<a class="more-t" href="${s.href}">Mais info <span aria-hidden="true">↗</span></a>` : ''}</li>`).join('');
       }
       $('#rt-m').innerHTML = steps('m');
       $('#rt-n').innerHTML = steps('n');
