@@ -2,16 +2,7 @@
   const $ = (s) => document.querySelector(s);
   const tabsEl = $('#tabs'), panel = $('#panel'), filterEl = $('#filter'), appbar = $('.appbar'), side = $('.side');
   const narrow = window.matchMedia('(max-width:900px)');
-  const nextBtn = $('#next'), nextLbl = $('#next-l');
-
-  // Tema: claro por padrão (definido no <head>); o botão alterna e grava a escolha.
-  const root = document.documentElement;
-  $('#theme').addEventListener('click', () => {
-    const t = root.dataset.theme === 'dark' ? 'light' : 'dark';
-    root.dataset.theme = t;
-    try { localStorage.setItem('tema', t); } catch (e) {}
-  });
-  const FILTERS = [[0, 'Todas'], [1, 'Até R$ 70'], [2, 'R$ 70–200'], [3, 'Acima de R$ 200']];
+  const nextBtn = $('#next'), nextLbl = $('#next-l');  const FILTERS = [[0, 'Todas'], [1, 'Até R$ 70'], [2, 'R$ 70–200'], [3, 'Acima de R$ 200']];
   let tier = 0, current = 'inicio';
 
   const tierOf = (p) => (p == null ? 0 : p <= 70 ? 1 : p <= 200 ? 2 : 3);
@@ -112,8 +103,7 @@
     nextBtn.dataset.go = nx.id;
     nextLbl.textContent = last ? 'Voltar ao início' : nx.label;
     nextBtn.setAttribute('aria-label', last ? 'Voltar ao início' : 'Próxima aba: ' + nx.label);
-    panel.innerHTML = tabHTML(t);
-    panel.setAttribute('role', 'tabpanel');
+    panel.innerHTML = tabHTML(t);    panel.setAttribute('role', 'tabpanel');
     panel.setAttribute('aria-labelledby', 'tab-' + t.id);
     filterEl.hidden = !!t.custom;
     tabsEl.querySelectorAll('.tab').forEach((b) => {

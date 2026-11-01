@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Marque o que te incomoda e os ativos que quer usar, e veja sua rotina de skincare de manhã e à noite.">
+<title>Monte sua rotina · Skincare ativo por ativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // Aplica o tema antes de desenhar a página, para não piscar: o salvo pelo botão ou, sem escolha, o claro.
+  var t = null;
+  try { t = localStorage.getItem('tema'); } catch (e) {}
+  document.documentElement.dataset.theme = t || 'light';
+</script>
+</head>
+<body class="tool">
+<header class="appbar">
+  <div class="appbar-in">
+    <a class="logo" href="index.html">Skincare <span>ativo por ativo</span></a>
+    <div class="bar-r">
+      <button class="theme" id="theme" type="button" aria-label="Alternar entre modo claro e escuro">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+      </button>
+      <a class="cta" href="guia.html"><span aria-hidden="true">←</span> Voltar ao guia</a>
+    </div>
+  </div>
+</header>
+<div class="tool-wrap">
+  <header class="top">
+    <p class="eyebrow">Ferramenta · em 3 passos</p>
+    <h1>Monte sua <em>rotina</em></h1>
+    <p class="sub">Marque o que te incomoda, escolha os ativos e veja onde cada um entra, de manhã e à noite. A rotina se monta sozinha, na ordem certa de aplicação, com os cuidados de cada combinação.</p>
+  </header>
+  <main id="rotina"></main>
+  <footer>
+    <p>Esta ferramenta é informativa e não substitui a avaliação de um dermatologista. Em caso de gravidez, amamentação, doenças de pele ou uso de medicamentos, converse com seu médico antes de começar qualquer ativo.</p>
+  </footer>
+</div>
+<script src="js/tema.js"></script>
+<script src="js/rotina.js"></script>
+</body>
+</html>

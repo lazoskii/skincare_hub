@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<meta name="description" content="Guia de skincare ativo por ativo, com exemplos de produtos, preços e como ler o rótulo.">
+<title>Skincare Ativo por Ativo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<script>
+  // Aplica o tema antes de desenhar a página, para não piscar: o salvo pelo botão ou, sem escolha, o claro.
+  var t = null;
+  try { t = localStorage.getItem('tema'); } catch (e) {}
+  document.documentElement.dataset.theme = t || 'light';
+</script>
+</head>
+<body>
+<header class="appbar">
+  <div class="appbar-in">
+    <a class="logo" href="index.html">Skincare <span>ativo por ativo</span></a>
+    <div class="bar-r">
+      <button class="theme" id="theme" type="button" aria-label="Alternar entre modo claro e escuro">
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
+      </button>
+      <a class="cta ghost" href="rotina.html"><span class="long">Monte sua rotina</span><span class="short">Rotina</span></a>
+      <button class="cta" id="next"><span id="next-l">Próxima aba</span> <span aria-hidden="true">→</span></button>
+    </div>
+  </div>
+</header>
+<div class="wrap">
+  <aside class="side">
+    <p class="side-t">Nesta página</p>
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Assuntos do guia"></nav>
+  </aside>
+  <div class="main">
+    <header class="top">
+      <p class="eyebrow">Guia para quem está começando · preços de 30/10/2026</p>
+      <h1>Skincare <em>ativo por ativo</em></h1>
+      <p class="sub">Escolha o que te incomoda, entenda o que é aquilo e veja quais ativos ajudam, com produtos de várias faixas de preço. Toque em um ativo e depois em um produto para ver vantagens e desvantagens.</p>
+    </header>
+    <div class="filter" id="filter" role="group" aria-label="Filtrar produtos por preço"></div>
+    <main id="panel" tabindex="-1"></main>
+  </div>
+  <footer>
+    <p>Este guia é informativo e não substitui a avaliação de um dermatologista. Em caso de gravidez, amamentação, doenças de pele ou uso de medicamentos, converse com seu médico antes de começar qualquer ativo.</p>
+    <p>Preços são valores aproximados vistos em farmácias e marketplaces brasileiros em outubro de 2026, e mudam bastante entre lojas e promoções. Vantagens e desvantagens resumem a composição, o tipo de produto e o que costuma aparecer em avaliações; a resposta da sua pele pode ser diferente.</p>
+  </footer>
+</div>
+
+<script src="js/abas/inicio-protetor.js"></script>
+<script src="js/abas/rugas-manchas.js"></script>
+<script src="js/abas/flacidez-acne.js"></script>
+<script src="js/abas/olheiras-hidratacao-combinacoes.js"></script>
+<script src="js/abas/em-estudo.js"></script>
+<script src="js/abas/ler-rotulo.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

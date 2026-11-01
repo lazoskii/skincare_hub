@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="color-scheme" content="light dark">
-<meta name="description" content="Guia de skincare ativo por ativo, com exemplos de produtos, preços e como ler o rótulo.">
+<meta name="description" content="Guia de skincare para quem está começando: entenda cada ativo ou monte sua rotina de manhã e à noite.">
 <title>Skincare Ativo por Ativo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,45 +17,108 @@
   document.documentElement.dataset.theme = t || 'light';
 </script>
 </head>
-<body>
+<body class="home">
 <header class="appbar">
   <div class="appbar-in">
-    <a class="logo" href="#inicio">Skincare <span>ativo por ativo</span></a>
+    <a class="logo" href="index.html">Skincare <span>ativo por ativo</span></a>
     <div class="bar-r">
       <button class="theme" id="theme" type="button" aria-label="Alternar entre modo claro e escuro">
         <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/></svg>
         <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.6 1.6M17.1 17.1l1.6 1.6M5.3 18.7l1.6-1.6M17.1 6.9l1.6-1.6"/></svg>
       </button>
-      <button class="cta" id="next"><span id="next-l">Próxima aba</span> <span aria-hidden="true">→</span></button>
     </div>
   </div>
 </header>
-<div class="wrap">
-  <aside class="side">
-    <p class="side-t">Nesta página</p>
-    <nav class="tabs" id="tabs" role="tablist" aria-label="Assuntos do guia"></nav>
-  </aside>
-  <div class="main">
-    <header class="top">
-      <p class="eyebrow">Guia para quem está começando · preços de 30/10/2026</p>
-      <h1>Skincare <em>ativo por ativo</em></h1>
-      <p class="sub">Escolha o que te incomoda, entenda o que é aquilo e veja quais ativos ajudam, com produtos de várias faixas de preço. Toque em um ativo e depois em um produto para ver vantagens e desvantagens.</p>
-    </header>
-    <div class="filter" id="filter" role="group" aria-label="Filtrar produtos por preço"></div>
-    <main id="panel" tabindex="-1"></main>
-  </div>
+<div class="home-wrap">
+  <header class="top">
+    <p class="eyebrow">Guia de skincare para quem está começando</p>
+    <h1>Por onde você quer <em>começar</em>?</h1>
+    <p class="sub">Entenda o que cada ativo faz e quais produtos valem a pena, ou vá direto montar uma rotina de manhã e à noite com o que combina com a sua pele.</p>
+  </header>
+
+  <main class="doors">
+    <a class="door d1" href="guia.html">
+      <span class="door-art">
+        <svg class="ill" viewBox="0 0 260 190" aria-hidden="true">
+          <circle class="bl" cx="130" cy="98" r="78"/>
+          <path class="ln dash" d="M54 150c20 14 46 20 74 20"/>
+          <g class="bob">
+            <rect class="ac" x="117" y="26" width="22" height="36" rx="11"/>
+            <rect class="sf" x="111" y="60" width="34" height="16" rx="5"/>
+            <rect class="sf" x="92" y="74" width="72" height="92" rx="18"/>
+            <path class="so" d="M95 128h66v20a15 15 0 0 1-15 15h-36a15 15 0 0 1-15-15z"/>
+            <rect class="pe" x="104" y="96" width="48" height="26" rx="7"/>
+            <path class="ln" d="M112 105h28M112 113h18"/>
+            <rect class="ln" x="92" y="74" width="72" height="92" rx="18"/>
+          </g>
+          <path class="so drop" d="M206 36c0 0-11 13-11 21a11 11 0 0 0 22 0c0-8-11-21-11-21z"/>
+          <path class="ln drop" d="M206 36c0 0-11 13-11 21a11 11 0 0 0 22 0c0-8-11-21-11-21z"/>
+          <g class="bob2">
+            <circle class="sf glass" cx="184" cy="128" r="24"/>
+            <path class="ln" d="M184 118l8.7 5v10l-8.7 5-8.7-5v-10z"/>
+            <circle class="ac" cx="184" cy="118" r="2.6"/><circle class="ac" cx="175.3" cy="133" r="2.6"/><circle class="ac" cx="192.7" cy="133" r="2.6"/>
+            <path class="ln thick" d="M201 145l17 17"/>
+          </g>
+          <path class="ln spark" d="M60 52v16M52 60h16"/>
+          <path class="ln spark s2" d="M222 92v10M217 97h10"/>
+          <circle class="ac" cx="70" cy="112" r="3"/>
+        </svg>
+      </span>
+      <span class="door-body">
+        <span class="eyebrow">01 · Guia de ativos</span>
+        <h2>Entender os ativos</h2>
+        <p>Tire dúvidas sobre cada ativo, veja o que funciona para cada queixa, aprenda a ler o rótulo e compare produtos por faixa de preço.</p>
+        <span class="door-go">Abrir o guia <i aria-hidden="true">→</i></span>
+      </span>
+    </a>
+
+    <a class="door d2" href="rotina.html">
+      <span class="door-art">
+        <svg class="ill" viewBox="0 0 260 190" aria-hidden="true">
+          <circle class="bl" cx="130" cy="98" r="78"/>
+          <path class="ln dash" d="M70 50Q130 6 192 46"/>
+          <g class="bob2">
+            <circle class="pe" cx="58" cy="62" r="15"/>
+            <circle class="ln" cx="58" cy="62" r="15"/>
+            <path class="ln" d="M58 36v-6M58 94v-6M32 62h-6M90 62h-6M39.6 43.6l-4.2-4.2M80.6 84.6l-4.2-4.2M39.6 80.4l-4.2 4.2M80.6 39.4l-4.2 4.2"/>
+          </g>
+          <g class="bob3">
+            <path class="ac" d="M205 36a20 20 0 1 0 9 34 16 16 0 1 1-9-34z"/>
+            <path class="ln spark s2" d="M224 30v8M220 34h8"/>
+          </g>
+          <g class="bob">
+            <rect class="sf" x="82" y="68" width="92" height="104" rx="16"/>
+            <rect class="ac" x="108" y="61" width="40" height="14" rx="7"/>
+            <circle class="gd" cx="102" cy="99" r="8"/><path class="ck" d="M98.2 99.2l2.6 2.6 5-5.2"/>
+            <circle class="gd" cx="102" cy="123" r="8"/><path class="ck" d="M98.2 123.2l2.6 2.6 5-5.2"/>
+            <circle class="ln" cx="102" cy="147" r="8"/>
+            <path class="ln" d="M118 99h40M118 123h30M118 147h36"/>
+          </g>
+          <g class="bob3">
+            <rect class="so" x="186" y="128" width="42" height="38" rx="10"/>
+            <rect class="ln" x="186" y="128" width="42" height="38" rx="10"/>
+            <rect class="pe" x="181" y="117" width="52" height="14" rx="6"/>
+            <rect class="ln" x="181" y="117" width="52" height="14" rx="6"/>
+            <path class="ln" d="M197 146h20"/>
+          </g>
+          <circle class="ac" cx="46" cy="140" r="3"/>
+          <path class="ln spark" d="M52 112v12M46 118h12"/>
+        </svg>
+      </span>
+      <span class="door-body">
+        <span class="eyebrow">02 · Ferramenta</span>
+        <h2>Montar sua rotina</h2>
+        <p>Marque o que te incomoda e veja quais ativos usar, de manhã e à noite, na ordem certa e com os cuidados de cada combinação.</p>
+        <span class="door-go">Montar agora <i aria-hidden="true">→</i></span>
+      </span>
+    </a>
+  </main>
+
   <footer>
     <p>Este guia é informativo e não substitui a avaliação de um dermatologista. Em caso de gravidez, amamentação, doenças de pele ou uso de medicamentos, converse com seu médico antes de começar qualquer ativo.</p>
-    <p>Preços são valores aproximados vistos em farmácias e marketplaces brasileiros em outubro de 2026, e mudam bastante entre lojas e promoções. Vantagens e desvantagens resumem a composição, o tipo de produto e o que costuma aparecer em avaliações; a resposta da sua pele pode ser diferente.</p>
   </footer>
 </div>
-
-<script src="js/abas/inicio-protetor.js"></script>
-<script src="js/abas/rugas-manchas.js"></script>
-<script src="js/abas/flacidez-acne.js"></script>
-<script src="js/abas/olheiras-hidratacao-combinacoes.js"></script>
-<script src="js/abas/em-estudo.js"></script>
-<script src="js/abas/ler-rotulo.js"></script>
-<script src="js/app.js"></script>
+<script src="js/tema.js"></script>
+<script src="js/inicio.js"></script>
 </body>
 </html>
