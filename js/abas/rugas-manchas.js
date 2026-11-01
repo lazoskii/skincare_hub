@@ -137,9 +137,6 @@ TABS.push({
       use: 'Manhã e noite, em pele limpa. Costuma ser bem tolerado.',
       care: 'Procure orientação médica, principalmente com melasma e com histórico de trombose. Use protetor todo dia, pois o sol anula o tratamento.',
       prods: [
-        { b: 'Farmácia de manipulação', n: 'Ácido Tranexâmico 3% Sérum', c: 'TXA 3% · 30–60 ml', pl: '~R$ 49–50', p: 49,
-          pros: ['Preço baixo, com 3% (concentração usada em estudos)', 'Fórmula simples, com pouco ingrediente além do ativo'],
-          cons: ['A qualidade depende da farmácia', 'Validade curta e embalagem sem selo industrial'] },
         { b: 'Principia', n: 'Mix-02', c: 'Cafeína 5% + TXA 3% + ferúlico 0,5%', pl: '~R$ 79', p: 79,
           pros: ['Combina TXA com cafeína e ácido ferúlico, bom para olheiras', 'Pode ser usado de manhã e à noite', 'Produto industrializado, com lote e validade'],
           cons: ['Mistura ativos, e fica mais difícil saber qual está funcionando', 'Textura pode deixar uma película em peles oleosas'] },
@@ -148,7 +145,7 @@ TABS.push({
           cons: ['O ácido glicólico deixa a pele mais sensível ao sol', 'Pode arder em pele sensível ou com barreira fraca'] },
         { b: 'Ada Tina', n: 'Clarivis TX Sérum Ultra Clareador', c: 'TXA · 30 ml', pl: '~R$ 311+', p: 311,
           pros: ['Linha dermatológica voltada a manchas'],
-          cons: ['Mais de seis vezes o preço de um tranexâmico manipulado', 'O valor extra paga marca e embalagem, e não uma concentração maior comprovada'] }
+          cons: ['Cerca de quatro vezes o preço do Mix-02 da Principia, que também tem 3% de tranexâmico', 'O valor extra paga marca e embalagem, e não uma concentração maior comprovada'] }
       ]
     },
     { n: 'Ácido azelaico', tag: 'Anti-inflamatório', ev: 'Moderada',

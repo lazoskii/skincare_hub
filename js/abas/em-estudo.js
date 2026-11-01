@@ -20,12 +20,12 @@ TABS.splice(TABS.findIndex((t) => t.id === 'combinar'), 0, {
       use: 'Séruns de 1 a 2 vezes ao dia. Os estudos tópicos citados usam concentrações baixas. Existem séruns vendidos como 10%, e não há evidência de que mais concentrado dê mais resultado.',
       care: 'Cobre em excesso pode irritar. Muitos fabricantes orientam não usar junto de vitamina C pura e ácidos fortes no mesmo horário, embora haja pouco estudo sobre isso. Gestantes devem consultar o médico. Uma especialista alerta que nem sempre se sabe se o produto contém mesmo o peptídeo.',
       prods: [
-        { b: 'SkinLab (Manipula)', n: 'Nano Copper Peptide GHK-Cu 1%', c: 'GHK-Cu 1% · 30 ml', pl: '~R$ 45', p: 45,
-          pros: ['Preço muito baixo para testar o ativo', 'Concentração informada (1%)', 'Fórmula com um único ativo declarado, o que deixa claro o que você está testando'],
-          cons: ['A página não traz a lista completa de ingredientes', 'Diz ser "segura e hipoalergênica" sem dados que comprovem', 'Não há estudo independente sobre este produto'] },
-        { b: 'Fortlife', n: 'Fortskin GHK-Cu 10% Sérum Repair', c: 'GHK-Cu 10% · 30 ml', pl: '~R$ 100', p: 100,
-          pros: ['Preço intermediário', 'Concentração declarada no nome'],
-          cons: ['10% é muito mais que as concentrações dos estudos tópicos citados, e sem prova de que seja melhor', 'A página não lista ingredientes nem detalha a concentração', 'Promete "alta biodisponibilidade" sem dados'] }
+        { b: 'Hidrabene', n: 'Sérum GHK-Cu Peptídeo de Cobre', c: 'GHK-Cu + outros peptídeos + ácido hialurônico · 30 ml', pl: '~R$ 100–200', p: 100,
+          pros: ['Opção mais barata para testar o peptídeo de cobre, sobretudo em promoção', 'Vem com hialurônico, então também hidrata'],
+          cons: ['Não informa a concentração de GHK-Cu', 'O preço cheio (~R$ 200) é próximo do da COSRX, que traz mais ativos e um frasco bem maior', 'Promessas de firmeza são da marca, sem estudo próprio publicado'] },
+        { b: 'COSRX', n: 'The 6 Peptide Skin Booster Serum', c: '6 peptídeos (inclui peptídeo de cobre) + niacinamida + hialurônico · 150 ml', pl: '~R$ 165–323', p: 165,
+          pros: ['Marca coreana conhecida, vendida na Sephora Brasil', 'O peptídeo de cobre vem junto de outros 5 peptídeos, niacinamida e hialurônico, então é um bom sérum de hidratação mesmo que o cobre faça pouco', 'Frasco de 150 ml dura muitos meses'],
+          cons: ['Peptídeo de cobre em dose baixa (a marca informa de 0,05% a 0,3%), então não é um sérum "só de GHK-Cu"', 'O preço muda muito entre lojas: da Sephora (~R$ 323) às lojas de importação (~R$ 165–220)', 'Algumas lojas vendem por importação, com taxa e prazo maiores'] }
       ]
     },
     { n: 'PDRN e polinucleotídeos ("DNA de salmão")', tag: 'Fragmentos de DNA', ev: 'Limitada',
@@ -37,9 +37,12 @@ TABS.splice(TABS.findIndex((t) => t.id === 'combinar'), 0, {
       use: 'Sérum ou ampola, de manhã e à noite. Quase nenhuma marca informa quanto PDRN há na fórmula.',
       care: 'A origem é animal (salmão), então quem tem alergia a peixe deve conversar com o médico antes. Ampolas e cremes caros com PDRN podem ser desnecessários, então compare o resto da fórmula.',
       prods: [
-        { b: 'Medicube', n: 'PDRN Pink Peptide Serum', c: 'PDRN + peptídeos (inclui peptídeo de cobre) + niacinamida · 30 ml', pl: '~R$ 249', p: 249,
+        { b: 'Medicube', n: 'PDRN Pink Peptide Serum', c: 'PDRN + peptídeos (inclui peptídeo de cobre) + niacinamida · 30 ml', pl: '~R$ 136–225', p: 136,
           pros: ['Reúne PDRN, vários peptídeos (um deles é o peptídeo de cobre) e niacinamida, então é um sérum de peptídeos razoável mesmo que o PDRN faça pouco', 'Marca popular e vendida em redes de farmácia no Brasil'],
-          cons: ['Não informa a concentração de PDRN', 'Preço alto para uma fórmula cujo benefício provável vem de ingredientes mais baratos', 'As promessas (colágeno, firmeza, poros) são da marca, e a página não traz evidência clínica'] }
+          cons: ['Não informa a concentração de PDRN', 'Preço alto para uma fórmula cujo benefício provável vem de ingredientes mais baratos', 'As promessas (colágeno, firmeza, poros) são da marca, e a página não traz evidência clínica'] },
+        { b: 'Anua', n: 'PDRN Hyaluronic Acid Capsule 100 Serum', c: 'PDRN + 11 tipos de ácido hialurônico + colágeno · 30 ml', pl: '~R$ 186–210', p: 186,
+          pros: ['Marca coreana conhecida, famosa pelo tônico de heartleaf', 'Base com vários tipos de hialurônico, então hidrata bem mesmo que o PDRN faça pouco', 'Textura leve, boa para usar por baixo do hidratante'],
+          cons: ['Não informa a concentração de PDRN', 'No Brasil aparece sobretudo em lojas de importação, às vezes sem as taxas no preço', 'Pelo preço, um sérum de hialurônico comum entrega quase o mesmo'] }
       ]
     },
     { n: 'Exossomos', tag: 'Vesículas de células', ev: 'Limitada',
